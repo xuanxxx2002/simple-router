@@ -19,23 +19,6 @@
 
 ---
 
-## 專案架構
-
-```
-router_sim/
-├── Makefile
-├── include/
-│   └── router.h          # 所有型別、結構體與函式宣告
-└── src/
-    ├── utils.c           # IP checksum、字串轉換工具
-    ├── router_init.c     # 路由器與介面初始化
-    ├── route.c           # 靜態路由表 + LPM 查詢
-    ├── arp.c             # ARP 快取新增／查詢／列印
-    ├── acl.c             # ACL 規則新增／比對／列印
-    ├── forward.c         # 封包轉發核心邏輯
-    └── main.c            # 示範：拓樸建立 + 5 個測試情境
-```
-
 ### 封包轉發流程
 
 ```
@@ -83,7 +66,7 @@ router_sim/
 ### 編譯
 
 ```bash
-git clone https://github.com/<你的帳號>/router_sim.git
+git clone https://github.com/xuanxxx2002/simple-router
 cd router_sim
 make
 ```
@@ -106,27 +89,7 @@ make clean
 
 程式建立一個 3 介面路由器，並執行 5 個轉發測試情境：
 
-```
-=========================================
-   Simple Layer-3 Router Simulator
-=========================================
 
---- 介面設定 ---
-[IFACE] Added eth0  192.168.1.1/255.255.255.0
-[IFACE] Added eth1  10.0.0.1/255.255.255.0
-[IFACE] Added eth2  172.16.0.1/255.255.0.0
-
-=== 路由表（4 筆） ===
-Destination        Mask             Gateway          Iface    Metric
-192.168.1.0        255.255.255.0    0.0.0.0          eth0     0
-10.0.0.0           255.255.255.0    0.0.0.0          eth1     0
-172.16.0.0         255.255.0.0      0.0.0.0          eth2     0
-0.0.0.0            0.0.0.0          10.0.0.254       eth1     10
-
-=== ACL 規則（2 筆） ===
-block-tcp-172    DENY    192.168.1.0/255.255.255.0  172.16.0.0/255.255.0.0  TCP
-permit-icmp-10   PERMIT  0.0.0.0/0.0.0.0            10.0.0.0/255.255.255.0  ICMP
-```
 
 ### 測試情境
 
