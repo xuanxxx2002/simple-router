@@ -89,6 +89,11 @@ make clean
 
 程式建立一個 3 介面路由器，並執行 5 個轉發測試情境：
 
+![image](https://github.com/xuanxxx2002/simple-router/blob/main/img1.png)
+![image](https://github.com/xuanxxx2002/simple-router/blob/main/img2.png)
+![image](https://github.com/xuanxxx2002/simple-router/blob/main/img3.png)
+![image](https://github.com/xuanxxx2002/simple-router/blob/main/img4.png)
+
 
 
 ### 測試情境
